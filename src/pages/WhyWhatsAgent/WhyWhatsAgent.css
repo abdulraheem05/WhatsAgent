@@ -1,0 +1,240 @@
+/* --- Base Layout --- */
+.why-page-wrapper {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: "Google Sans", sans-serif;
+  color: #0f172a;
+}
+
+.why-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.back-btn-container {
+  max-width: 1100px; /* Same max-width as .why-content */
+  margin: 0 auto;
+  padding: 20px 10px 10px 0px; /* Top padding pushes it down from the navbar */
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.why-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* --- Hero Section --- */
+.why-hero {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #e0e7ff;
+  color: #4338ca;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.why-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.why-hero p {
+  font-size: 18px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* --- Alternating Feature Blocks --- */
+.feature-block {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+.feature-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-text h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: -2px;
+}
+
+.feature-text p {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.feature-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+/* --- Abstract Visualizations --- */
+.feature-visual {
+  flex: 1;
+  height: 350px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Speed Visual */
+.mock-chat-bubble {
+  background: #f1f5f9;
+  padding: 12px 18px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  max-width: 80%;
+}
+.mock-chat-bubble.ai {
+  align-self: flex-start;
+  background: #eff6ff;
+  color: #1e3a8a;
+  border-bottom-left-radius: 4px;
+}
+.mock-chat-bubble.customer {
+  align-self: flex-end;
+  background: #1e293b;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* Docs Sync Visual */
+.sync-graphic {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 48px;
+}
+.sync-arrows {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+/* Dashboard Visual */
+.mock-dashboard {
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+.mock-dash-header {
+  background: #1e293b;
+  color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.mock-dash-row {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+  color: #475569;
+}
+.mock-dash-row.warning {
+  border-left: 4px solid #ef4444;
+  background: #fef2f2;
+}
+
+/* --- Call to Action --- */
+.why-cta {
+  text-align: center;
+  padding: 80px 0 40px;
+  border-top: 1px solid #e2e8f0;
+  letter-spacing: -2px;
+}
+
+.why-cta h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.cta-btn {
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+.cta-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}

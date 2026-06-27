@@ -1,0 +1,861 @@
+.agent-loading-screen {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.agent-details-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background: #f8fafc;
+  padding: 40px 24px;
+}
+
+.agent-details-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.agent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #0f172a;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title-row h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.badge {
+  background: #e2e8f0;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* iOS Style Toggle Switch */
+.status-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.status-text {
+  font-weight: 600;
+  font-size: 15px;
+}
+.status-text.active { color: #10b981; }
+.status-text.inactive { color: #94a3b8; }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #cbd5e1;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #10b981;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Content Grid */
+.agent-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.details-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  min-height: 400px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+/* Update Button */
+.update-docs-btn {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.update-docs-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.update-docs-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Lists */
+.empty-state {
+  color: #94a3b8;
+  font-style: italic;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.doc-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.doc-icon {
+  font-size: 24px;
+}
+
+.doc-info h4 {
+  margin: 0 0 4px 0;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+.doc-info a {
+  font-size: 13px;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.doc-info a:hover {
+  text-decoration: underline;
+}
+
+/* Messages */
+.msg-count {
+  background: #fee2e2;
+  color: #ef4444;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.message-item {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.msg-sender {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.msg-text {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.msg-time {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ==============================================
+   KNOWLEDGE BASE & DOCUMENT HERO SECTION
+   ============================================== */
+.kb-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin: 0 0 24px 0;
+  font-size: 18px;
+  color: #0f172a;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+}
+
+/* Document Hero Container */
+.doc-hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px; /* Pushes the updates table down */
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.doc-hero-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.doc-hero-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.doc-hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.doc-hero-title-row h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1e293b;
+  letter-spacing: -0.3px;
+}
+
+/* Hover Tooltip */
+.info-tooltip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  color: #64748b;
+  font-family: serif;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.info-tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #232323c2;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: system-ui, -apple-system, sans-serif;
+  white-space: normal;
+  width: 240px;
+  text-align: center;
+  line-height: 1.4;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Tooltip Triangle */
+.info-tooltip:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1e293b;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.doc-last-updated {
+  margin: 0 0 8px 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.view-doc-link {
+  font-size: 13px;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-doc-link:hover {
+  text-decoration: underline;
+}
+
+/* Google Style Update Button */
+.google-blue-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1a73e8; /* Google Material Blue */
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 26px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+.google-blue-btn:hover:not(:disabled) {
+  background-color: #174ea6;
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+}
+
+.google-blue-btn:disabled {
+  background-color: #e8eaed;
+  color: #9aa0a6;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Small Spinner for Button */
+.spinner-small {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+/* ==============================================
+   KNOWLEDGE UPDATES TABLE SECTION
+   ============================================== */
+.section-subtitle {
+  font-size: 15px;
+  color: #475569;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.update-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.update-row:hover {
+  background: #f1f5f9;
+}
+
+.update-status-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status Indicator Dots */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.status-dot.applied { background-color: #10b981; }
+.status-dot.pending { background-color: #f59e0b; }
+.status-dot.failed { background-color: #ef4444; }
+
+.update-content-col {
+  flex: 1;
+}
+
+.update-msg {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.update-time {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Status Badges */
+.status-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.applied {
+  background-color: #d1fae5;
+  color: #059669;
+}
+.status-badge.pending {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+.status-badge.failed {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.empty-state-small {
+  color: #94a3b8;
+  font-size: 14px;
+  font-style: italic;
+  padding: 16px 0;
+}
+
+/* =========================================
+   DYNAMIC TOAST NOTIFICATION
+   ========================================= */
+.dynamic-toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 9999999;
+  
+  /* Bouncy slide in animation */
+  transform: translateX(150%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.dynamic-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* --- THEMES --- */
+/* 1. Success Theme (Green) */
+.dynamic-toast.success { border-left: 4px solid #10b981; }
+.dynamic-toast.success .toast-icon {
+  background: #10b981;
+  animation: pulseGreen 2s infinite;
+}
+
+/* 2. Info Theme (Blue) */
+.dynamic-toast.info { border-left: 4px solid #3b82f6; }
+.dynamic-toast.info .toast-icon {
+  background: #3b82f6;
+  font-family: serif;
+  font-style: italic; /* Makes the 'i' look like an info icon */
+}
+
+/* 3. Error/Warning Theme (Orange) */
+.dynamic-toast.error { border-left: 4px solid #f97316; }
+.dynamic-toast.error .toast-icon {
+  background: #f97316;
+}
+
+/* Icon & Text Shared Styling */
+.toast-icon {
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.toast-text h4 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.toast-text p {
+  margin: 4px 0 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ==============================================
+   CLICKABLE TITLE & HELPER TEXT
+   ============================================== */
+.doc-title-link {
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.doc-title-link h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1e293b;
+  letter-spacing: -0.3px;
+  transition: color 0.2s ease; /* Smooth fade effect */
+}
+
+/* Turns Google Blue when hovering the link */
+.doc-title-link:hover h3 {
+  color: #1a73e8; 
+}
+
+.doc-last-updated {
+  margin: 0 0 8px 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* The new helper instructions */
+.doc-helper-text {
+  margin: 19px 0 0 0;   
+  font-size: 12px;
+  color: #64748b; /* Muted gray so it doesn't distract from the title */
+  line-height: 1.5;
+  max-width: 450px; /* Keeps the text wrapping neatly */
+  opacity: 80%;
+}
+
+.doc-helper-text strong {
+  color: #475569; /* Makes the word 'Update' pop slightly */
+}
+
+/* ==============================================
+   UNANSWERED MESSAGES TABLE
+   ============================================== */
+.messages-table-container {
+  overflow-x: auto;
+  margin-top: -8px;
+}
+
+.messages-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Table Headers */
+.messages-table th {
+  padding: 12px 16px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  font-weight: 700;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.action-col {
+  text-align: center;
+  width: 60px;
+}
+
+/* Table Rows */
+.message-row {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+}
+
+.message-row:hover {
+  background-color: #f8fafc;
+}
+
+.message-row td {
+  padding: 16px;
+  vertical-align: top;
+}
+
+.message-row:last-child {
+  border-bottom: none;
+}
+
+/* Column Styling */
+.msg-phone-cell {
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.msg-time-subtext {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.msg-text-cell {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 250px;
+}
+
+.msg-action-cell {
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+/* Resolve Checkmark Button */
+.resolve-btn {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #10b981; /* Emerald Green */
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resolve-btn:hover {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+/* ==============================================
+   KEBAB MENU & MODALS
+   ============================================== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.kebab-menu-container {
+  position: relative;
+}
+
+.kebab-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  transition: all 0.2s;
+}
+
+.kebab-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.kebab-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 99;
+}
+
+.kebab-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 160px;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.kebab-dropdown button {
+  background: none;
+  border: none;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.kebab-dropdown button:hover {
+  background: #f1f5f9;
+}
+
+.kebab-dropdown button.danger-text {
+  color: #ef4444;
+  border-top: 1px solid #f1f5f9;
+}
+
+.kebab-dropdown button.danger-text:hover {
+  background: #fef2f2;
+}
+
+.rename-input {
+  width: 100%;
+  padding: 12px;
+  margin: 16px 0 24px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.rename-input:focus {
+  border-color: #3b82f6;
+}
+
+.danger-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 28px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.danger-btn:hover {
+  background: #dc2626;
+}

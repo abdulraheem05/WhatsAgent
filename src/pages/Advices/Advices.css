@@ -1,0 +1,125 @@
+.advices-page-wrapper {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 40px 20px;
+}
+
+.advices-container {
+  max-width: 720px; /* Matches card width for alignment */
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.advices-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.advices-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 1.5rem;
+}
+
+.advices-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.advices-header p {
+  margin: 0;
+  color: #666666;
+  font-size: 0.95rem;
+}
+
+.advices-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.advice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: #f8f9fa;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.advice-badge {
+  background: #3b82f6;
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.advice-content h3 {
+  margin: 0 0 0.35rem 0;
+  color: #2d3748;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.advice-content p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 0.925rem;
+  line-height: 1.5;
+}
+
+.advices-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}

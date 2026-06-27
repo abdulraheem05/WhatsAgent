@@ -1,0 +1,60 @@
+/* =========================================
+   1. Typography & Global Resets
+   ========================================= */
+/* =========================================
+   1. Typography & Global Resets
+   ========================================= */
+@font-face {
+  font-family: "Google Sans";
+  src: url("./assets/GoogleSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("./assets/GoogleSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Google Sans";
+  src: url("./assets/GoogleSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --google-blue: #1a73e8;
+  --google-blue-hover: rgba(138, 180, 248, 0.4); 
+  --wa-green: #25d366;
+  --wa-green-hover: rgba(37, 211, 102, 0.15); 
+  --text-main: #0f172a;
+  --text-secondary: #64748b;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Google Sans";
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(147, 197, 253, 0.34), transparent 36rem),
+    radial-gradient(circle at 10% 20%, rgba(224, 231, 255, 0.58), transparent 32rem),
+    radial-gradient(circle at 90% 8%, rgba(241, 245, 249, 0.92), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, #f7f9fd 48%, #f3f6fb 100%);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
