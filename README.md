@@ -20,7 +20,7 @@
 <br>
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20WhatsAgent-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://whats-agent-phi.vercel.app/home)
 
-🔗 [https://whats-agent-phi.vercel.app/home](https://whats-agent-phi.vercel.app)
+🔗 [https://whats-agent-phi.vercel.app](https://whats-agent-phi.vercel.app)
 
 </div>
 
