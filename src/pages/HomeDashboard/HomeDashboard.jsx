@@ -269,12 +269,21 @@ export default function HomeDashboard({ user }) {
       const errorData = await res.json();
       console.error("Backend Error during Import:", errorData);
       
-      // Extract the exact error message from FastAPI's error detail mapping
-      const backendMessage = typeof errorData.detail === 'string' 
-        ? errorData.detail 
-        : (errorData.detail?.[0]?.msg || 'Unknown server error');
+      let backendMessage = "Unknown server error";
+      
+      // Safely extract the message
+      if (typeof errorData.detail === 'string') {
+          backendMessage = errorData.detail;
+      } else if (errorData.detail?.[0]?.msg) {
+          backendMessage = errorData.detail[0].msg;
+      }
+      
+      // SAFETY NET: If the message is a massive unformatted dump, override it
+      if (backendMessage.length > 150 || backendMessage.includes("HttpError")) {
+          backendMessage = "A complex error occurred while importing. Please try again later.";
+      }
         
-      setErrorMessage(`Failed to import document: ${backendMessage}`);
+      setErrorMessage(backendMessage);
     }
   } catch (error) {
     console.error("Network Error:", error);
@@ -486,7 +495,7 @@ export default function HomeDashboard({ user }) {
   // --- Final Activation ---
   const handleActivate = async () => {
     // 1. TEST MODE: Removed the strict checks
-    if (!businessName || !businessType) {
+    if (!businessName || !businessType || !step1Done || !step2Done) {
       setShowError(true);
       return;
     }
