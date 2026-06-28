@@ -49,6 +49,9 @@ export default function HomeDashboard({ user }) {
   const [showCancelQrConfirm, setShowCancelQrConfirm] = useState(false);
   const [isCancellingQr, setIsCancellingQr] = useState(false);
 
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const businessTypes = [
     "Education", "Entertainment", "Clothing", "Beauty Parlour", "Food & Beverage", "Tech & Software", "Other"
   ];
@@ -225,34 +228,62 @@ export default function HomeDashboard({ user }) {
   }, [docsInput]);
 
   const handleImport = async () => {
-    if (docsInput.trim() === "" || docAccess !== 'public') return;
-    setIsImporting(true);
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      const res = await fetch(`${BACKEND_URL}/knowledge/import-doc`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session?.access_token}`,
-          'X-Agent-Id': activeBusinessId // <-- 3. UPDATED
-        },
-        body: JSON.stringify({ google_doc_url: docsInput, title: extractedTitle || "Untitled Document" })
-      });
-      if (res.ok) {
-        setStep1Done(true);
-        setShowError(false);
-        setIsDocsModalOpen(false);
-      } else {
-        const errorData = await res.json();
-        console.error("Backend Error during Import:", errorData);
-        alert(`Failed to import document.\nReason: ${errorData.detail || 'Unknown server error'}`);
-      }
-    } catch (error) {
-      alert("Error connecting to server.");
-    } finally {
-      setIsImporting(false);
+  setErrorMessage(""); // Clear old errors on new click
+  setIsLoading(true);
+  
+  if (docsInput.trim() === "") {
+    setErrorMessage("Please enter a Google Docs URL.");
+    setIsLoading(false);
+    return;
+  }
+  
+  if (docAccess !== 'public') {
+    setErrorMessage("Please ensure the document access is set to public or shared properly.");
+    setIsLoading(false);
+    return;
+  }
+
+  setIsImporting(true);
+  
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    const res = await fetch(`${BACKEND_URL}/knowledge/import-doc`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${session?.access_token}`,
+        'X-Agent-Id': activeBusinessId 
+      },
+      body: JSON.stringify({ 
+        google_doc_url: docsInput, 
+        title: extractedTitle || "Untitled Document" 
+      })
+    });
+    
+    if (res.ok) {
+      setStep1Done(true);
+      setShowError(false);
+      setIsDocsModalOpen(false);
+    } else {
+      const errorData = await res.json();
+      console.error("Backend Error during Import:", errorData);
+      
+      // Extract the exact error message from FastAPI's error detail mapping
+      const backendMessage = typeof errorData.detail === 'string' 
+        ? errorData.detail 
+        : (errorData.detail?.[0]?.msg || 'Unknown server error');
+        
+      setErrorMessage(`Failed to import document: ${backendMessage}`);
     }
-  };
+  } catch (error) {
+    console.error("Network Error:", error);
+    setErrorMessage("Error connecting to server. Please check your network connection.");
+  } finally {
+    setIsImporting(false);
+    setIsLoading(false);
+  }
+};
 
   const handleDeleteDoc = async () => {
     try {
@@ -711,6 +742,27 @@ export default function HomeDashboard({ user }) {
                       onBlur={() => setIsDocsInputFocused(false)}
                       placeholder={isDocsInputFocused ? "e.g. https://docs.google.com/..." : ""}
                     />
+                    {errorMessage && (
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        backgroundColor: '#FEF2F2',
+                        border: '1px solid #FEE2E2',
+                        borderRadius: '6px',
+                        padding: '10px 12px',
+                        marginTop: '12px',
+                        color: '#DC2626',
+                        fontSize: '14px'
+                      }}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <line x1="12" y1="8" x2="12" y2="12"></line>
+                          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* 1. EXTRACTED TITLE: Appears only when ready */}
