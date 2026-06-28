@@ -173,3 +173,82 @@
   font-weight: 700;
   letter-spacing: -0.5px;
 }
+
+/* =========================================
+   NAVBAR MOBILE RESPONSIVE FIXES
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+    height: 64px; /* Slightly more compact on phones */
+  }
+
+  .brand-text {
+    font-size: 18px; /* Slightly smaller text */
+  }
+
+  .nav-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* 1. Remove absolute centering so buttons don't overlap the logo */
+  .nav-center {
+    position: static;
+    transform: none;
+    gap: 8px;
+    margin-left: auto; /* Pushes center links towards the right */
+    margin-right: 8px;
+  }
+
+  /* 2. Make the Advices button more compact */
+  .advice-box-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .bulb-icon-small {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* 3. Hide the Feedback button on mobile (users can still scroll to footer manually) */
+  .feedback-btn {
+    display: none;
+  }
+
+  /* 4. Hide user name text on narrow screens to prevent text wrapping */
+  .nav-user-name {
+    display: none;
+  }
+
+  .nav-profile {
+    gap: 8px;
+    flex: none; /* Let it take only the space it needs */
+  }
+
+  .profile-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sign-out-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-left: 4px;
+  }
+}
+
+/* For extremely small phones (iPhone SE, Galaxy Fold outer screen) */
+@media screen and (max-width: 400px) {
+  /* Hide the advice text and only show the lightbulb icon to save space */
+  .advice-box-btn .advice-text {
+    display: none;
+  }
+
+  .advice-box-btn {
+    padding: 8px;
+    border-radius: 50%;
+  }
+}
