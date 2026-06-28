@@ -238,3 +238,96 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
 }
+
+/* =========================================
+   WHY WHATAGENTS MOBILE RESPONSIVE FIXES
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+  /* 1. Adjust the back button spacing for smaller screens */
+  .back-btn-container {
+    padding: 16px 16px 4px 16px;
+    margin: 0;
+  }
+
+  .back-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  /* 2. Reduce the massive layout padding to prevent side squishing */
+  .why-content {
+    padding: 20px 16px;
+    gap: 40px;
+    letter-spacing: 0.5px;
+  }
+
+  /* 3. Scale down hero typography dynamically */
+  .why-hero h1 {
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -2px;
+  }
+
+  .why-hero p {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  /* 4. Force side-by-side rows to stack neatly on top of each other */
+  .feature-block, 
+  .feature-block.reverse {
+    flex-direction: column !important; /* Forces layout fallback regardless of row direction */
+    gap: 24px;
+    padding: 10px;
+  }
+
+  /* 5. Allow text and media components to take full mobile width */
+  .feature-text, 
+  .feature-visual {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .feature-text h2 {
+    font-size: 22px;
+    letter-spacing: -1px;
+  }
+
+  .feature-text p,
+  .feature-list li {
+    font-size: 14px;
+  }
+
+  /* 6. Ensure graphics and chat mockups scale cleanly inside the screen boundaries */
+  .mock-chat-container,
+  .mock-dashboard {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sync-graphic {
+    gap: 12px;
+  }
+
+  .custom-app-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* 7. Optimize bottom Call-to-Action container and button */
+  .why-cta {
+    padding: 40px 16px;
+  }
+
+  .why-cta h2 {
+    font-size: 24px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    padding: 12px;
+  }
+}
