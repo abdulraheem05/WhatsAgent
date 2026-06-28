@@ -859,3 +859,51 @@ input:checked + .slider:before {
 .danger-btn:hover {
   background: #dc2626;
 }
+
+/* Responsive Mobile Layout */
+@media (max-width: 768px) {
+  /* 1. Header Stacking */
+  .agent-header {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative; /* Needed to anchor the kebab menu */
+    gap: 16px;
+  }
+
+  /* 2. Position the Kebab Menu on the Name Line */
+  .kebab-menu-container {
+    position: absolute;
+    top: 30px; /* Aligns with the title row */
+    right: 0;
+  }
+
+  /* 3. Ensure Header Right (Toggle) sits below Title */
+  .header-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .status-toggle-wrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* 4. Fix Badge Overlap */
+  .title-row {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-right: 40px; /* Space for the kebab menu */
+  }
+
+  /* 5. Mobile Content Grid (Messages Top, Knowledge Bottom) */
+  .agent-content-grid {
+    display: flex;
+    flex-direction: column-reverse; /* Reverses order */
+    gap: 24px;
+  }
+
+  /* 6. Fix Card Height */
+  .details-card {
+    min-height: auto;
+  }
+}

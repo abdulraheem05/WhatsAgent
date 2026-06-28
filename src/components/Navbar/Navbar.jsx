@@ -50,7 +50,7 @@ export default function Navbar({ user }) {
             <path d="M19.5 7.5l-.5.5" />
             <circle cx="12" cy="12" r="5" />
           </svg>
-          <span className="advice-text">Advices</span>
+          <span className="advice-text">How to use</span>
         </Link>
 
         {/* Feedback remains a button to trigger the scroll */}
