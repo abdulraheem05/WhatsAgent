@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../../supabaseClient';
 import './HomeDashboard.css';
 
-const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = "https://abdulraheem05-whatsagent-backend.hf.space";
 
 // --- Icons ---
 const DocsIcon = () => (
