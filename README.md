@@ -155,7 +155,7 @@ WhatsAgent adapts to your business in real-time. If you check your dashboard and
   <h2>Contact Me</h2>
   <p>Have inquiries or feedback? Feel free to reach out!</p>
   
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abdlraheem26@gmail.com&su=Inquiry%20regarding%20WhatsAgent">
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abdlraheem26@gmail.com&su=Inquiry%20regarding%20WhatsAgent" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Email-abdlraheem26%40gmail.com-005bb5?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Abdul Raheem" />
   </a>
 </div>
