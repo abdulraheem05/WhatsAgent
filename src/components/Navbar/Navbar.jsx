@@ -24,7 +24,7 @@ export default function Navbar({ user }) {
       <div className="nav-brand">
         <Link to="/home" className="brand-link">
           <img 
-            src="/WhatsAgentLogo.png" /* 👈 Replace with the path to your actual logo asset (e.g., /icons/logo.png) */
+            src="/WhatsAgent.png-Green.png" /* 👈 Replace with the path to your actual logo asset (e.g., /icons/logo.png) */
             alt="WhatsAgent Logo" 
             className="nav-logo" 
           />

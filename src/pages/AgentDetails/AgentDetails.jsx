@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabaseClient';
 import './AgentDetails.css';
 
-const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = "https://abdulraheem05-whatsagent-backend.hf.space";
 
 export default function AgentDetails({ user }) {
   const { id } = useParams();
